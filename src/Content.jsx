@@ -3,6 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { VehiclesIndex } from "./VehiclesIndex";
 import { VehiclesNew } from "./VehiclesNew";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [vehicles, setVehicles] = useState([]);
@@ -26,8 +29,11 @@ export function Content() {
 
   return (
     <div>
+      <Signup />
+      <Login />
       <VehiclesNew onCreateVehicle={handleCreateVehicle} />
       <VehiclesIndex vehicles={vehicles} />
+      <LogoutLink />
     </div>
   );
 }
