@@ -6,14 +6,18 @@ import { VehiclesNew } from "./VehiclesNew";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [vehicles, setVehicles] = useState([]);
+  const [isVehiclesShowVisible, setIsVehiclesShowVisible] = useState(false);
+  const [currentVehicle, setCurrentVehicle] = useState({});
 
   const handleIndexVehicles = () => {
-    console.log("handIndexVehicles");
+    console.log("handleIndexVehicles");
     axios.get("http://localhost:3000/vehicles.json").then((response) => {
       console.log(response.data);
+      setVehicles(response.data);
     });
   };
 
@@ -25,14 +29,28 @@ export function Content() {
     });
   };
 
+  const handleShowVehicle = (vehicle) => {
+    console.log("handleShowVehicle", vehicle);
+    setIsVehiclesShowVisible(true);
+    setCurrentVehicle(vehicle);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsVehiclesShowVisible(false);
+  };
+
   useEffect(handleIndexVehicles, []);
 
   return (
     <div>
-      <Signup />
       <Login />
+      <Signup />
       <VehiclesNew onCreateVehicle={handleCreateVehicle} />
-      <VehiclesIndex vehicles={vehicles} />
+      <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
+      <Modal show={isVehiclesShowVisible} onClose={handleClose}>
+        <h1>Test</h1>
+      </Modal>
       <LogoutLink />
     </div>
   );

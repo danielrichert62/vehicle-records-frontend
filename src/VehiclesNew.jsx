@@ -7,7 +7,7 @@ export function VehiclesNew(props) {
   };
   return (
     <div>
-      <h1>Add Vehicle</h1>
+      <h1>Add New Vehicle</h1>
       <form onSubmit={handleSubmit}>
         <div>
           Year: <input name="year" type="integer" />
