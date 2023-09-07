@@ -45,9 +45,13 @@ export function Content() {
   return (
     <div>
       <Login />
+      <hr />
       <Signup />
+      <hr />
       <VehiclesNew onCreateVehicle={handleCreateVehicle} />
+      <hr />
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
+      <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
         <h1>Test</h1>
       </Modal>

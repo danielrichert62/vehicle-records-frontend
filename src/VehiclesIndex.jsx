@@ -5,7 +5,7 @@ export function VehiclesIndex(props) {
       <h1>All Vehicles</h1>
       {props.vehicles.map((vehicle) => (
         <div key={vehicle.id}>
-          <p>{vehicle.make}</p>
+          <p>Make: {vehicle.make}</p>
           <p>Model: {vehicle.model}</p>
           <p>Year: {vehicle.year}</p>
           <button onClick={() => props.onShowVehicle(vehicle)}>More info</button>
