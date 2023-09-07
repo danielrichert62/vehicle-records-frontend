@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useState, useEffect } from "react";
+// import { Routes, Route } from "react-router-dom";
 import { VehiclesIndex } from "./VehiclesIndex";
 import { VehiclesNew } from "./VehiclesNew";
 import { Signup } from "./Signup";
@@ -23,10 +24,15 @@ export function Content() {
 
   const handleCreateVehicle = (params, successCallback) => {
     console.log("handleCreateVehicle", params);
-    axios.post("http://localhost:3000/vehicles.json", params).then((response) => {
-      setVehicles([...vehicles, response.data]);
-      successCallback();
-    });
+    axios
+      .post("http://localhost:3000/vehicles.json", params)
+      .then((response) => {
+        setVehicles([...vehicles, response.data]);
+        successCallback();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleShowVehicle = (vehicle) => {
@@ -44,6 +50,7 @@ export function Content() {
 
   return (
     <div>
+      <p>Current User: </p>
       <Login />
       <hr />
       <Signup />
@@ -53,7 +60,7 @@ export function Content() {
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
       <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
-        <h1>Test</h1>
+        <h1>Modal Test</h1>
       </Modal>
       <LogoutLink />
     </div>

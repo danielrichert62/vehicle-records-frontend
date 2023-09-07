@@ -6,7 +6,7 @@ export function VehiclesNew(props) {
     props.onCreateVehicle(params, () => event.target.reset());
   };
   return (
-    <div>
+    <div id="vehicle-new">
       <h1>Add New Vehicle</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -17,6 +17,9 @@ export function VehiclesNew(props) {
         </div>
         <div>
           Model: <input name="model" type="text" />
+        </div>
+        <div>
+          Image: <input name="image_url" type="text" />
         </div>
         <button type="submit">Create Vehicle</button>
       </form>
