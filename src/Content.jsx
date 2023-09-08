@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 // import { Routes, Route } from "react-router-dom";
 import { VehiclesNew } from "./VehiclesNew";
 import { VehiclesIndex } from "./VehiclesIndex";
+import { FuelsIndex } from "./FuelsIndex";
 import { Modal } from "./Modal";
 import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
@@ -14,6 +15,7 @@ export function Content() {
   const [vehicles, setVehicles] = useState([]);
   const [isVehiclesShowVisible, setIsVehiclesShowVisible] = useState(false);
   const [currentVehicle, setCurrentVehicle] = useState({});
+  const [currentFuel, setCurrentFuel] = useState({});
 
   const handleIndexVehicles = () => {
     console.log("handleIndexVehicles");
@@ -71,6 +73,20 @@ export function Content() {
     });
   };
 
+  // const handleIndexFuels = () => {
+  //   console.log("handleIndexFuels");
+  //   axios.get("http://localhost:3000/fuels.json").then((response) => {
+  //     console.log(response.data);
+  //     setVehicles(response.data);
+  //   });
+  // };
+
+  // const handleShowFuel = (fuel) => {
+  //   console.log("handleShowFuel", fuel);
+  //   setIsFuelsShowVisible(true);
+  //   setCurrentFuel(fuel);
+  // };
+
   useEffect(handleIndexVehicles, []);
 
   return (
@@ -84,6 +100,8 @@ export function Content() {
       <VehiclesNew onCreateVehicle={handleCreateVehicle} />
       <hr />
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
+      <hr />
+      {/* <FuelsIndex fuels={fuels} onShowFuel={handleShowFuel} /> */}
       <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
         <VehiclesShow
