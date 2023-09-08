@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 // import { Routes, Route } from "react-router-dom";
 import { VehiclesNew } from "./VehiclesNew";
 import { VehiclesIndex } from "./VehiclesIndex";
-import { FuelsIndex } from "./FuelsIndex";
+// import { FuelsIndex } from "./FuelsIndex";
 import { Modal } from "./Modal";
 import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
@@ -91,9 +91,10 @@ export function Content() {
 
   return (
     <div className="container" id="content-component">
-      <p>Current User: </p>
+      <p>
+        Current User: <Login />
+      </p>
       <LogoutLink />
-      <Login />
       <hr />
       <Signup />
       <hr />
