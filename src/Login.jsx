@@ -59,7 +59,7 @@ export function Login() {
       ) : (
         <>
           {/* jwt is defined */}
-          Hello, {localStorage.name}!
+          Hello, {localStorage.email}!
         </>
       )}
     </>

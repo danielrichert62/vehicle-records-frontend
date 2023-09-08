@@ -16,7 +16,6 @@ export function VehiclesIndex(props) {
           </p>
           <img src={vehicle.image_url} />
           <br />
-          {/* <p>Image: {vehicle.image_url}</p> */}
           <button onClick={() => props.onShowVehicle(vehicle)}>More info</button>
         </div>
       ))}

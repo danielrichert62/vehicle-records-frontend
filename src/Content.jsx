@@ -2,12 +2,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 // import { Routes, Route } from "react-router-dom";
-import { VehiclesIndex } from "./VehiclesIndex";
 import { VehiclesNew } from "./VehiclesNew";
+import { VehiclesIndex } from "./VehiclesIndex";
+import { Modal } from "./Modal";
+import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
-import { Modal } from "./Modal";
 
 export function Content() {
   const [vehicles, setVehicles] = useState([]);
@@ -22,6 +23,17 @@ export function Content() {
     });
   };
 
+  const handleShowVehicle = (vehicle) => {
+    console.log("handleShowVehicle", vehicle);
+    setIsVehiclesShowVisible(true);
+    setCurrentVehicle(vehicle);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsVehiclesShowVisible(false);
+  };
+
   const handleCreateVehicle = (params, successCallback) => {
     console.log("handleCreateVehicle", params);
     axios
@@ -34,19 +46,6 @@ export function Content() {
         console.log(error);
       });
   };
-
-  const handleShowVehicle = (vehicle) => {
-    console.log("handleShowVehicle", vehicle);
-    setIsVehiclesShowVisible(true);
-    setCurrentVehicle(vehicle);
-  };
-
-  const handleClose = () => {
-    console.log("handleClose");
-    setIsVehiclesShowVisible(false);
-  };
-
-  useEffect(handleIndexVehicles, []);
 
   const handleUpdateVehicle = (id, params) => {
     console.log("handleUpdateVehicle", params);
@@ -66,14 +65,16 @@ export function Content() {
 
   const handleDestroyVehicle = (vehicle) => {
     console.log("handleDestroyVehicle", vehicle);
-    axios.delete(`http://localhost:3000/pVehicles/${vehicle.id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/vehicles/${vehicle.id}.json`).then((response) => {
       setVehicles(vehicles.filter((p) => p.id !== vehicle.id));
       handleClose();
     });
   };
 
+  useEffect(handleIndexVehicles, []);
+
   return (
-    <div>
+    <div className="container" id="content-component">
       <p>Current User: </p>
       <LogoutLink />
       <Login />
@@ -85,9 +86,8 @@ export function Content() {
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
       <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
-        {/* <h1>Modal Test</h1> */}
-        <VehiclesIndex
-          post={currentVehicle}
+        <VehiclesShow
+          vehicle={currentVehicle}
           onUpdateVehicle={handleUpdateVehicle}
           onDestroyVehicle={handleDestroyVehicle}
         />
