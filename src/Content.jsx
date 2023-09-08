@@ -48,9 +48,34 @@ export function Content() {
 
   useEffect(handleIndexVehicles, []);
 
+  const handleUpdateVehicle = (id, params) => {
+    console.log("handleUpdateVehicle", params);
+    axios.patch(`http://localhost:3000/vehicles/${id}.json`, params).then((response) => {
+      setVehicles(
+        vehicles.map((vehicle) => {
+          if (vehicle.id === response.data.id) {
+            return response.data;
+          } else {
+            return vehicle;
+          }
+        })
+      );
+      handleClose();
+    });
+  };
+
+  const handleDestroyVehicle = (vehicle) => {
+    console.log("handleDestroyVehicle", vehicle);
+    axios.delete(`http://localhost:3000/pVehicles/${vehicle.id}.json`).then((response) => {
+      setVehicles(vehicles.filter((p) => p.id !== vehicle.id));
+      handleClose();
+    });
+  };
+
   return (
     <div>
       <p>Current User: </p>
+      <LogoutLink />
       <Login />
       <hr />
       <Signup />
@@ -60,9 +85,13 @@ export function Content() {
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
       <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
-        <h1>Modal Test</h1>
+        {/* <h1>Modal Test</h1> */}
+        <VehiclesIndex
+          post={currentVehicle}
+          onUpdateVehicle={handleUpdateVehicle}
+          onDestroyVehicle={handleDestroyVehicle}
+        />
       </Modal>
-      <LogoutLink />
     </div>
   );
 }

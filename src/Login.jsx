@@ -19,6 +19,8 @@ export function Login() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("name", response.data.name);
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
@@ -29,22 +31,37 @@ export function Login() {
   };
 
   return (
-    <div id="login">
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      {localStorage.jwt === undefined ? (
+        <>
+          {/* jwt is undefined */}
+
+          {localStorage.removeItem("email")}
+          {localStorage.removeItem("name")}
+          <div id="login">
+            <h1>Login</h1>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleSubmit}>
+              <div>
+                Email: <input name="email" type="email" />
+              </div>
+              <div>
+                Password: <input name="password" type="password" />
+              </div>
+              <button type="submit">Login</button>
+            </form>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* jwt is defined */}
+          Hello, {localStorage.name}!
+        </>
+      )}
+    </>
   );
 }
