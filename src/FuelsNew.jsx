@@ -27,7 +27,7 @@ export function FuelsNew(props) {
         {/* <div>
           Cost per gallon: <input name="cost_per_gallon" type="decimal" />
         </div> */}
-        <button type="submit">Create Fuel</button>
+        <button type="submit">Add Fuel</button>
       </form>
     </div>
   );

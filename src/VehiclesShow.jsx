@@ -13,10 +13,10 @@ export function VehiclesShow(props) {
 
   return (
     <div id="vehicles-show">
-      <h1>Vehicle Info!</h1>
+      {/* <h1>Vehicle Info!</h1>
       <p>Make: {props.vehicle.make}</p>
       <p>Model: {props.vehicle.model}</p>
-      <p>Year: {props.vehicle.year}</p>
+      <p>Year: {props.vehicle.year}</p> */}
       {/* <p>{props.vehicle.friendly_created_at}</p> */}
 
       <h1>Edit vehicle</h1>
