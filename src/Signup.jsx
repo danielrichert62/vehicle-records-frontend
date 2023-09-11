@@ -34,28 +34,28 @@ export function Signup() {
           <label htmlFor="InputEmail" className="form-label">
             Email address
           </label>
-          <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" />
+          <input type="text" name="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="InputName" className="form-label">
             Name
           </label>
-          <input type="name" className="form-control" id="InputName" aria-describedby="emailHelp" />
+          <input type="text" name="name" className="form-control" id="InputName" aria-describedby="emailHelp" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="InputPassword1" className="form-label">
             Password
           </label>
-          <input type="password" className="form-control" id="InputPassword1" />
+          <input type="password" name="password" className="form-control" id="InputPassword1" />
         </div>
 
         <div className="mb-3">
           <label htmlFor="InputPassword2" className="form-label">
             Password Confirmation
           </label>
-          <input type="password" className="form-control" id="InputPassword2" />
+          <input type="password" name="password" className="form-control" id="InputPassword2" />
         </div>
 
         {/* <div className="mb-3 form-check">
@@ -65,12 +65,12 @@ export function Signup() {
           </label>
         </div> */}
 
-        <button type="submit" className="btn btn-primary">
+        {/* <button type="submit" className="btn btn-primary">
           Submit
         </button>
-      </form>
+      </form> */}
 
-      {/* <div>
+        {/* <div>
           Name: <input name="name" type="text" />
         </div>
         <div>
@@ -82,11 +82,12 @@ export function Signup() {
         <div>
           Password confirmation: <input name="password_confirmation" type="password" />
         </div> */}
-      {/* <button type="submit">Signup</button> */}
-      {/* <button type="submit" className="btn btn-outline-primary">
+
+        {/* <button type="submit">Signup</button> */}
+        <button type="submit" className="btn btn-outline-primary">
           Signup
-        </button> */}
-      {/* </form> */}
+        </button>
+      </form>
     </div>
   );
 }

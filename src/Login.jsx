@@ -36,8 +36,8 @@ export function Login() {
         <>
           {/* jwt is undefined */}
 
-          {/* {localStorage.removeItem("email")} */}
-          {localStorage.removeItem("name")}
+          {localStorage.removeItem("email")}
+          {/* {localStorage.removeItem("name")} */}
           <div id="login">
             <h2>Login</h2>
             <ul>
@@ -50,14 +50,26 @@ export function Login() {
                 <label htmlFor="InputEmail" className="form-label">
                   Email:
                 </label>
-                <input name="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" />
+                <input
+                  type="text"
+                  name="email"
+                  className="form-control"
+                  id="InputEmail1"
+                  aria-describedby="emailHelp"
+                />
               </div>
 
               <div className="mb-1">
                 <label htmlFor="InputPassword" className="form-label">
                   Password:
                 </label>
-                <input name="password" className="form-control" id="InputPassword" aria-describedby="passwordHelp" />
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  id="InputPassword"
+                  aria-describedby="passwordHelp"
+                />
               </div>
 
               {/* <div>
@@ -66,6 +78,7 @@ export function Login() {
               <div>
                 Password: <input name="password" type="password" />
               </div> */}
+
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
