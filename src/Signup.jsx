@@ -22,55 +22,71 @@ export function Signup() {
   };
 
   return (
-    <div id="signup">
-      <h2>Signup</h2>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-1">
-          <label htmlFor="InputEmail" className="form-label">
-            Email address
-          </label>
-          <input type="text" name="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" />
-        </div>
+    <>
+      {localStorage.jwt === undefined ? (
+        <>
+          {/* jwt is undefined */}
 
-        <div className="mb-3">
-          <label htmlFor="InputName" className="form-label">
-            Name
-          </label>
-          <input type="text" name="name" className="form-control" id="InputName" aria-describedby="emailHelp" />
-        </div>
+          {localStorage.removeItem("email")}
+          {localStorage.removeItem("user_id")}
+          {localStorage.removeItem("user_name")}
+          {localStorage.removeItem("image_url")}
 
-        <div className="mb-3">
-          <label htmlFor="InputPassword1" className="form-label">
-            Password
-          </label>
-          <input type="password" name="password" className="form-control" id="InputPassword1" />
-        </div>
+          <div id="signup">
+            <h2>Signup</h2>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleSubmit}>
+              <div className="w-50">
+                <label htmlFor="InputEmail" className="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="text"
+                  name="email"
+                  className="form-control"
+                  id="InputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
 
-        <div className="mb-3">
-          <label htmlFor="InputPassword2" className="form-label">
-            Password Confirmation
-          </label>
-          <input type="password" name="password" className="form-control" id="InputPassword2" />
-        </div>
+              <div className="w-50">
+                <label htmlFor="InputName" className="form-label">
+                  First and Last Name
+                </label>
+                <input type="text" name="name" className="form-control" id="InputName" aria-describedby="emailHelp" />
+              </div>
 
-        {/* <div className="mb-3 form-check">
+              <div className="w-50">
+                <label htmlFor="InputPassword1" className="form-label">
+                  Password
+                </label>
+                <input type="password" name="password" className="form-control" id="InputPassword1" />
+              </div>
+
+              <div className="w-50">
+                <label htmlFor="InputPassword2" className="form-label">
+                  Password Confirmation
+                </label>
+                <input type="password" name="password" className="form-control" id="InputPassword2" />
+              </div>
+
+              {/* <div className="mb-3 form-check">
           <input type="checkbox" className="form-check-input" id="Check1" />
           <label className="form-check-label" htmlFor="Check1">
             Check me out
           </label>
         </div> */}
 
-        {/* <button type="submit" className="btn btn-primary">
+              {/* <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form> */}
 
-        {/* <div>
+              {/* <div>
           Name: <input name="name" type="text" />
         </div>
         <div>
@@ -83,17 +99,25 @@ export function Signup() {
           Password confirmation: <input name="password_confirmation" type="password" />
         </div> */}
 
-        {/* <button type="submit">Signup</button> */}
-        <button type="submit" className="btn btn-outline-primary">
-          Signup
-        </button>
-      </form>
-    </div>
+              {/* <button type="submit">Signup</button> */}
+              <br />
+              <button type="submit" className="btn btn-outline-primary">
+                Signup
+              </button>
+            </form>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* jwt is defined */}
+          Current User: {localStorage.email}
+        </>
+      )}
+    </>
   );
 }
 
-{
-  /* <button type="button" class="btn btn-primary">Primary</button>
+/* <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
 <button type="button" class="btn btn-danger">Danger</button>
@@ -101,6 +125,4 @@ export function Signup() {
 <button type="button" class="btn btn-info">Info</button>
 <button type="button" class="btn btn-light">Light</button>
 <button type="button" class="btn btn-dark">Dark</button>
-
 <button type="button" class="btn btn-link">Link</button> */
-}

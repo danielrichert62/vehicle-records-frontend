@@ -37,7 +37,7 @@ export function Login() {
           {/* jwt is undefined */}
 
           {localStorage.removeItem("email")}
-          {/* {localStorage.removeItem("name")} */}
+          {localStorage.removeItem("name")}
           <div id="login">
             <h2>Login</h2>
             <ul>
@@ -46,7 +46,7 @@ export function Login() {
               ))}
             </ul>
             <form onSubmit={handleSubmit}>
-              <div className="mb-1">
+              <div className="form-floating mb-3 w-50">
                 <label htmlFor="InputEmail" className="form-label">
                   Email:
                 </label>
@@ -59,7 +59,7 @@ export function Login() {
                 />
               </div>
 
-              <div className="mb-1">
+              <div className="form-floating w-50">
                 <label htmlFor="InputPassword" className="form-label">
                   Password:
                 </label>
@@ -78,7 +78,7 @@ export function Login() {
               <div>
                 Password: <input name="password" type="password" />
               </div> */}
-
+              <br />
               <button type="submit" className="btn btn-primary">
                 Login
               </button>

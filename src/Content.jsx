@@ -1,12 +1,12 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import axios from "axios";
+import React from "react";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { VehiclesNew } from "./VehiclesNew";
 import { VehiclesIndex } from "./VehiclesIndex";
-import { FuelsIndex } from "./FuelsIndex";
 import { Modal } from "./Modal";
+import { FuelsNew } from "./FuelsNew";
+import { FuelsIndex } from "./FuelsIndex";
 import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
@@ -16,8 +16,8 @@ export function Content() {
   const [vehicles, setVehicles] = useState([]);
   const [isVehiclesShowVisible, setIsVehiclesShowVisible] = useState(false);
   const [currentVehicle, setCurrentVehicle] = useState({});
-  // const [currentFuel, setCurrentFuel] = useState([]);
-  // const [Fuels, setFuels] = useState([]);
+  const [currentFuel, setCurrentFuel] = useState([]);
+  const [Fuels, setFuels] = useState([]);
 
   const handleIndexVehicles = () => {
     console.log("handleIndexVehicles");
@@ -75,34 +75,72 @@ export function Content() {
     });
   };
 
-  // const handleIndexFuels = () => {
-  //   console.log("handleIndexFuels");
-  //   axios.get("http://localhost:3000/fuels.json").then((response) => {
-  //     console.log(response.data);
-  //     setVehicles(response.data);
-  //   });
-  // };
+  const handleIndexFuels = () => {
+    console.log("handleIndexFuels");
+    axios.get("http://localhost:3000/fuels.json").then((response) => {
+      console.log(response.data);
+      setFuels(response.data);
+    });
+  };
 
-  // const handleShowFuel = (fuel) => {
-  //   console.log("handleShowFuel", fuel);
-  //   setIsFuelsShowVisible(true);
-  //   setCurrentFuel(fuel);
-  // };
+  const handleShowFuel = (fuel) => {
+    console.log("handleShowFuel", fuel);
+    setIsFuelsShowVisible(true);
+    setCurrentFuel(fuel);
+  };
 
-  // const handleAddFuel = (params, successCallback) => {
-  //   console.log("handleAddFuel", params);
-  //   axios
-  //     .post("http://localhost:3000/fuels.json", params)
-  //     .then((response) => {
-  //       setFuels([...Fuels, response.data]); // is this correct?  Fuels?
-  //       successCallback();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const handleAddFuel = (params, successCallback) => {
+    console.log("handleAddFuel", params);
+    axios
+      .post("http://localhost:3000/fuels.json", params)
+      .then((response) => {
+        setFuels([...Fuels, response.data]); // is this correct?  Fuels?
+        successCallback();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleCreateFuel = (params, successCallback) => {
+    console.log("handleCreateFuel", params);
+    axios
+      .post("http://localhost:3000/fuels.json", params)
+      .then((response) => {
+        setFuels([...Fuels, response.data]);
+        successCallback();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleUpdateFuel = (id, params) => {
+    console.log("handleUpdateFuel", params);
+    axios.patch(`http://localhost:3000/fuels/${id}.json`, params).then((response) => {
+      setFuels(
+        fuels.map((fuel) => {
+          if (fuel.id === response.data.id) {
+            return response.data;
+          } else {
+            return fuel;
+          }
+        })
+      );
+      handleClose();
+    });
+  };
+
+  const handleDestroyFuel = (fuel) => {
+    console.log("handleDestroyFuel", fuel);
+    axios.delete(`http://localhost:3000/fuels/${fuel.id}.json`).then((response) => {
+      setFuels(fuels.filter((p) => p.id !== fuel.id));
+      handleClose();
+    });
+  };
 
   useEffect(handleIndexVehicles, []);
+  useEffect(handleIndexFuels, []);
 
   return (
     <div className="container" id="content-component">
@@ -116,15 +154,18 @@ export function Content() {
       <hr />
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
       <hr />
-      {/* <FuelsIndex fuels={Fuels} onShowFuel={handleShowFuel} />
-      <hr /> */}
+
+      <hr />
+      {/* <FuelsIndex fuels={Fuels} onShowFuel={handleShowFuel} /> */}
+      <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
         <VehiclesShow
           vehicle={currentVehicle}
           onUpdateVehicle={handleUpdateVehicle}
           onDestroyVehicle={handleDestroyVehicle}
-          // onAddFuel={handleAddFuel}
+          onAddFuel={handleAddFuel}
         />
+        {/* <FuelsNew onShowFuel={handleCreateFuel} /> */}
       </Modal>
     </div>
   );

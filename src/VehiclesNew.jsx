@@ -10,28 +10,28 @@ export function VehiclesNew(props) {
       <h2>Add New Vehicle</h2>
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="w-50">
           <label htmlFor="InputYear" className="form-label">
             Year
           </label>
           <input type="number" name="year" className="form-control" id="InputYear" aria-describedby="yearHelp" />
         </div>
 
-        <div className="mb-3">
+        <div className="w-50">
           <label htmlFor="InputMake" className="form-label">
             Make
           </label>
           <input type="text" name="make" className="form-control" id="InputMake" aria-describedby="makeHelp" />
         </div>
 
-        <div className="mb-3">
+        <div className="w-50">
           <label htmlFor="InputModel" className="form-label">
             Model
           </label>
           <input type="text" name="model" className="form-control" id="InputModel" aria-describedby="modelHelp" />
         </div>
 
-        <div className="mb-3">
+        <div className="w-50">
           <label htmlFor="InputImageUrl" className="form-label">
             Image URL
           </label>
@@ -58,6 +58,7 @@ export function VehiclesNew(props) {
         </div> */}
 
         {/* <button type="submit">Create Vehicle</button> */}
+        <br />
         <button type="submit" className="btn btn-outline-primary">
           Create Vehicle
         </button>

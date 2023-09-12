@@ -7,16 +7,18 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #00BFFF;
   font-variant: normal; font-weight: 1100; line-height: 26.4px;
   background-color: #E9F1FA
+  /* background-image: url('assets/interlaced.png'); */
   /* background-image: url(https://www.wallpaperflare.com/static/569/558/348/military-background-%C2%A0spots-texture-wallpaper.jpg); */
   /* background-image: url(./assets/subtle-web-background-5.jpg); */
-  /* background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); */
+  /* background-image: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); */
   /* width: 800px */
-  /* color: #3dda42e3 */
+  /* color #3dda42e3 */
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 #vehicles-index img {
   width: 400px;
 }
