@@ -7,11 +7,25 @@ import { useState, useEffect } from "react";
 import "./bootstrap.min.css"; // Added this :boom:
 
 function App() {
+  const [flashMessage, setFlashMessage] = useState("");
+
+  useEffect(() => {
+    if (localStorage.flashMessage) {
+      setFlashMessage(localStorage.flashMessage);
+      localStorage.removeItem("flashMessage");
+    }
+  }, []);
+
   return (
     <div>
-      <Header />
-      <Content />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <div>
+          <h1>{flashMessage}</h1>
+        </div>
+        <Content />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

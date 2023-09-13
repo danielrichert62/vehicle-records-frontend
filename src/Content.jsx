@@ -1,12 +1,14 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { VehiclesNew } from "./VehiclesNew";
 import { VehiclesIndex } from "./VehiclesIndex";
+import { VehiclesNew } from "./VehiclesNew";
 import { Modal } from "./Modal";
-import { FuelsNew } from "./FuelsNew";
 import { FuelsIndex } from "./FuelsIndex";
+import { FuelsNew } from "./FuelsNew";
 import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
@@ -70,7 +72,7 @@ export function Content() {
   const handleDestroyVehicle = (vehicle) => {
     console.log("handleDestroyVehicle", vehicle);
     axios.delete(`http://localhost:3000/vehicles/${vehicle.id}.json`).then((response) => {
-      setVehicles(vehicles.filter((p) => p.id !== vehicle.id));
+      setVehicles(vehicles.filter((r) => r.id !== vehicle.id));
       handleClose();
     });
   };
@@ -134,7 +136,7 @@ export function Content() {
   const handleDestroyFuel = (fuel) => {
     console.log("handleDestroyFuel", fuel);
     axios.delete(`http://localhost:3000/fuels/${fuel.id}.json`).then((response) => {
-      setFuels(fuels.filter((p) => p.id !== fuel.id));
+      setFuels(fuel.filter((p) => p.id !== fuel.id));
       handleClose();
     });
   };
@@ -144,18 +146,24 @@ export function Content() {
 
   return (
     <div className="container" id="content-component">
-      <p>
+      {/* <p>
         Current User: <Login /> <LogoutLink />
-      </p>
-      <hr />
-      <Signup />
+      </p> */}
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
+        <Route path="/fuel/new" element={<FuelsNew onCreateFuel={handleCreateFuel} />} />
+        <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
+      </Routes>
+      {/* <hr />
+        {/* <Route path="/login" element={<Login />} /> */}
+      {/* <Signup />
       <hr />
       <VehiclesNew onCreateVehicle={handleCreateVehicle} />
       <hr />
       <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
-      <hr />
-
-      <hr />
+      <hr /> */}
       {/* <FuelsIndex fuels={Fuels} onShowFuel={handleShowFuel} /> */}
       <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>

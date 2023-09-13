@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export function VehiclesShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,18 +14,12 @@ export function VehiclesShow(props) {
 
   return (
     <div id="vehicles-show">
-      {/* <h2>Vehicle Info!</h2>
-      <p>Make: {props.vehicle.make}</p>
-      <p>Model: {props.vehicle.model}</p>
-      <p>Year: {props.vehicle.year}</p> */}
-      {/* <p>{props.vehicle.friendly_created_at}</p> */}
-
       <h2>Edit vehicle</h2>
       <form onSubmit={handleSubmit}>
         <div className="w-50">
-          <label htmlFor="EditYear" className="form-label">
-            Year
-          </label>
+          {/* <label htmlFor="EditYear" className="form-label"> */}
+          Year
+          {/* </label> */}
           <input
             defaultValue={props.vehicle.year}
             name="year"
@@ -35,9 +30,9 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          <label htmlFor="EditMake" className="form-label">
-            Make
-          </label>
+          {/* <label htmlFor="EditMake" className="form-label"> */}
+          Make
+          {/* </label> */}
           <input
             defaultValue={props.vehicle.make}
             name="make"
@@ -48,9 +43,9 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          <label htmlFor="EditModel" className="form-label">
-            Model
-          </label>
+          {/* <label htmlFor="EditModel" className="form-label"> */}
+          Model
+          {/* </label> */}
           <input
             defaultValue={props.vehicle.model}
             name="model"
@@ -61,9 +56,9 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          <label htmlFor="EditImageUrl" className="form-label">
-            Image URL
-          </label>
+          {/* <label htmlFor="EditImageUrl" className="form-label"> */}
+          Image URL
+          {/* </label> */}
           <input
             defaultValue={props.vehicle.image_url}
             name="image_url"
@@ -73,18 +68,6 @@ export function VehiclesShow(props) {
             aria-describedby="imageUrlHelp"
           />
         </div>
-        {/* <div>
-          Year: <input defaultValue={props.vehicle.year} name="year" type="integer" />
-        </div>
-        <div>
-          model: <input defaultValue={props.vehicle.make} name="make" type="text" />
-        </div>
-        <div>
-          Model: <input defaultValue={props.vehicle.model} name="model" type="text" />
-        </div>
-        <div>
-          image_url: <input defaultValue={props.vehicle.image_url} name="image_url" type="text" />
-        </div> */}
         <br />
         <button type="submit" className="btn btn-outline-success">
           Update vehicle

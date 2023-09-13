@@ -29,7 +29,7 @@ export function Signup() {
 
           {localStorage.removeItem("email")}
           {localStorage.removeItem("user_id")}
-          {localStorage.removeItem("user_name")}
+          {localStorage.removeItem("name")}
           {localStorage.removeItem("image_url")}
 
           <div id="signup">
@@ -40,37 +40,23 @@ export function Signup() {
               ))}
             </ul>
             <form onSubmit={handleSubmit}>
-              <div className="w-50">
-                <label htmlFor="InputEmail" className="form-label">
-                  Email Address
-                </label>
-                <input
-                  type="text"
-                  name="email"
-                  className="form-control"
-                  id="InputEmail1"
-                  aria-describedby="emailHelp"
-                />
+              <div className="w-25">
+                <label htmlFor="InputEmail">Email Address</label>
+                <input type="text" name="email" className="form-control" id="InputEmail" aria-describedby="emailHelp" />
               </div>
 
-              <div className="w-50">
-                <label htmlFor="InputName" className="form-label">
-                  First and Last Name
-                </label>
+              <div className="w-25">
+                <label htmlFor="InputName">First and Last Name</label>
                 <input type="text" name="name" className="form-control" id="InputName" aria-describedby="emailHelp" />
               </div>
 
-              <div className="w-50">
-                <label htmlFor="InputPassword1" className="form-label">
-                  Password
-                </label>
+              <div className="w-25">
+                <label htmlFor="InputPassword1">Password</label>
                 <input type="password" name="password" className="form-control" id="InputPassword1" />
               </div>
 
-              <div className="w-50">
-                <label htmlFor="InputPassword2" className="form-label">
-                  Password Confirmation
-                </label>
+              <div className="w-25">
+                <label htmlFor="InputPassword2">Password Confirmation</label>
                 <input type="password" name="password" className="form-control" id="InputPassword2" />
               </div>
 

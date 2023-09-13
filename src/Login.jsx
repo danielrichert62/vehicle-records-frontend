@@ -46,23 +46,13 @@ export function Login() {
               ))}
             </ul>
             <form onSubmit={handleSubmit}>
-              <div className="form-floating mb-3 w-50">
-                <label htmlFor="InputEmail" className="form-label">
-                  Email:
-                </label>
-                <input
-                  type="text"
-                  name="email"
-                  className="form-control"
-                  id="InputEmail1"
-                  aria-describedby="emailHelp"
-                />
+              <div className="form-floating mb-2 w-25">
+                <label htmlFor="InputEmail">Email:</label>
+                <input type="text" name="email" className="form-control" id="InputEmail" aria-describedby="emailHelp" />
               </div>
 
-              <div className="form-floating w-50">
-                <label htmlFor="InputPassword" className="form-label">
-                  Password:
-                </label>
+              <div className="form-floating mb-2 w-25">
+                <label htmlFor="InputPassword">Password:</label>
                 <input
                   type="password"
                   name="password"
@@ -78,9 +68,8 @@ export function Login() {
               <div>
                 Password: <input name="password" type="password" />
               </div> */}
-              <br />
-              <button type="submit" className="btn btn-primary">
-                Login
+              <button type="submit" className="btn btn-outline-primary">
+                Submit
               </button>
             </form>
           </div>
