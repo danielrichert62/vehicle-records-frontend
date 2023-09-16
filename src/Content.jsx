@@ -147,14 +147,14 @@ export function Content() {
 
   return (
     <div className="container" id="content-component">
-      {/* <p>
+      <p>
         Current User: <Login /> <LogoutLink />
-      </p> */}
+      </p>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        {/* <Route path="/" element={<Homepage />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} /> */}
+        <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} />
         <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
         {/* <Route path="/fuel/new" element={<FuelsNew onCreateFuel={handleCreateFuel} />} /> */}
         <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
