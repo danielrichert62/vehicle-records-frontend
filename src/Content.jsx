@@ -4,15 +4,16 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Homepage } from "./Homepage";
 import { VehiclesIndex } from "./VehiclesIndex";
 import { VehiclesNew } from "./VehiclesNew";
-import { Modal } from "./Modal";
 import { FuelsIndex } from "./FuelsIndex";
 import { FuelsNew } from "./FuelsNew";
 import { VehiclesShow } from "./VehiclesShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [vehicles, setVehicles] = useState([]);
@@ -150,10 +151,12 @@ export function Content() {
         Current User: <Login /> <LogoutLink />
       </p> */}
       <Routes>
+        <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        {/* <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} /> */}
         <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
-        <Route path="/fuel/new" element={<FuelsNew onCreateFuel={handleCreateFuel} />} />
+        {/* <Route path="/fuel/new" element={<FuelsNew onCreateFuel={handleCreateFuel} />} /> */}
         <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
       </Routes>
       {/* <hr />
