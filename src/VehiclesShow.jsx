@@ -17,9 +17,7 @@ export function VehiclesShow(props) {
       <h2>Edit vehicle</h2>
       <form onSubmit={handleSubmit}>
         <div className="w-50">
-          {/* <label htmlFor="EditYear" className="form-label"> */}
           Year
-          {/* </label> */}
           <input
             defaultValue={props.vehicle.year}
             name="year"
@@ -30,9 +28,7 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          {/* <label htmlFor="EditMake" className="form-label"> */}
           Make
-          {/* </label> */}
           <input
             defaultValue={props.vehicle.make}
             name="make"
@@ -43,9 +39,7 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          {/* <label htmlFor="EditModel" className="form-label"> */}
           Model
-          {/* </label> */}
           <input
             defaultValue={props.vehicle.model}
             name="model"
@@ -56,9 +50,7 @@ export function VehiclesShow(props) {
           />
         </div>
         <div className="w-50">
-          {/* <label htmlFor="EditImageUrl" className="form-label"> */}
           Image URL
-          {/* </label> */}
           <input
             defaultValue={props.vehicle.image_url}
             name="image_url"

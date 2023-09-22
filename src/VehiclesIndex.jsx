@@ -8,7 +8,7 @@ export function VehiclesIndex(props) {
     <div className="vehicles-index">
       <h2 id="vehicle-title">Your Vehicles</h2>
       {props.vehicles.map((vehicle) => (
-        <div key={vehicle.id}>
+        <div key={vehicle.id} className="vehicles">
           <div className="card w-50">
             <div className="card-header">
               {vehicle.year} {vehicle.make} {vehicle.model}
@@ -23,9 +23,6 @@ export function VehiclesIndex(props) {
               <button onClick={handleClick} className="btn btn-outline-danger">
                 Remove vehicle
               </button>
-              {/* <a href="#" className="btn btn-primary" onClick={() => props.onShowVehicle(vehicle)}>
-                Vehicle Info2
-              </a> */}
             </div>
           </div>
           <br />

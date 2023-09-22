@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Modal } from "./Modal";
-// import { Signup } from "./Signup";
+import { Signup } from "./Signup";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
@@ -14,14 +14,14 @@ export function Header() {
     authenticationLinks = (
       <>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page">
-            <Link to="/signup">Signup</Link>
-          </a>
+          {/* <a className="nav-link active" aria-current="page"> */}
+          <Link to="/signup">Signup</Link>
+          {/* </a> */}
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page">
-            <Link to="/login">Login</Link>
-          </a>
+          {/* <a className="nav-link active" aria-current="page"> */}
+          <Link to="/login">Login</Link>
+          {/* </a> */}
         </li>
       </>
     );
@@ -29,19 +29,19 @@ export function Header() {
     authenticationLinks = (
       <>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page">
-            <Link to="/goals">Vehicles</Link>
-          </a>
+          {/* <a className="nav-link active" aria-current="page"> */}
+          <Link to="/vehicles">Vehicles</Link>
+          {/* </a> */}
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page">
-            <Link to="/new_goal">New Vehicle</Link>
-          </a>
+          {/* <a className="nav-link active" aria-current="page"> */}
+          <Link to="/vehicle/new">New Vehicle</Link>
+          {/* </a> */}
         </li>
         <li>
-          <a className="nav-link active" aria-current="page">
-            <LogoutLink />
-          </a>
+          {/* <a className="nav-link active" aria-current="page"> */}
+          <LogoutLink />
+          {/* </a> */}
         </li>
       </>
     );
@@ -55,45 +55,8 @@ export function Header() {
     setIsSignupVisible(false);
   };
 
-  //   return (
-  //     <header>
-  //       <Modal show={isSignupVisible} onClose={handleSignupClose}>
-  //         <Signup />
-  //       </Modal>
-  //       <nav id="nav" className="navbar navbar-expand-lg bg-body-tertiary">
-  //         <div className="container-fluid">
-  //           <button
-  //             className="navbar-toggler"
-  //             type="button"
-  //             data-bs-toggle="collapse"
-  //             data-bs-target="#navbarSupportedContent"
-  //             aria-controls="navbarSupportedContent"
-  //             aria-expanded="false"
-  //             aria-label="Toggle navigation"
-  //           >
-  //             <span className="navbar-toggler-icon"></span>
-  //           </button>
-  //           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-  //             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-  //               <li className="nav-item">
-  //                 <a className="nav-link active" aria-current="page" href="/">
-  //                   Home
-  //                 </a>
-  //               </li>
-  //               {authenticationLinks}
-  //             </ul>
-  //           </div>
-  //         </div>
-  //       </nav>
-  //     </header>
-  //   );
-  // }
-
   return (
     <header>
-      {/* <Modal show={isSignupVisible} onClose={handleSignupClose}>
-        <Signup />
-      </Modal> */}
       <div
         className="p-4 text-center bg-image"
         style={{
@@ -120,9 +83,7 @@ export function Header() {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            <LogoutLink />
-          </a>
+          <LogoutLink />
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/signup">

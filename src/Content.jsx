@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; /* useState and useEffect are REact Hooks */
 import { Routes, Route } from "react-router-dom";
 import { Homepage } from "./Homepage";
 import { VehiclesIndex } from "./VehiclesIndex";
@@ -147,29 +147,24 @@ export function Content() {
 
   return (
     <div className="container" id="content-component">
-      <p>
-        Current User: <Login /> <LogoutLink />
-      </p>
+      {/* <p> */}
+      Current User: <Login /> <LogoutLink />
+      {/* </p> */}
       <Routes>
         {/* <Route path="/" element={<Homepage />} /> */}
+        <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
+        <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
+        <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} />
-        <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
-        {/* <Route path="/fuel/new" element={<FuelsNew onCreateFuel={handleCreateFuel} />} /> */}
-        <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
       </Routes>
-      {/* <hr />
-        {/* <Route path="/login" element={<Login />} /> */}
-      {/* <Signup />
-      <hr />
-      <VehiclesNew onCreateVehicle={handleCreateVehicle} />
-      <hr />
-      <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />
-      <hr /> */}
+      {/* <Signup /> */}
+      {/* <VehiclesNew onCreateVehicle={handleCreateVehicle} /> */}
+      {/* <hr /> */}
+      {/* <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} /> */}
       {/* <FuelsIndex fuels={Fuels} onShowFuel={handleShowFuel} /> */}
-      <hr />
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
+        {/* <VehiclesNew /> */}
         <VehiclesShow
           vehicle={currentVehicle}
           onUpdateVehicle={handleUpdateVehicle}
