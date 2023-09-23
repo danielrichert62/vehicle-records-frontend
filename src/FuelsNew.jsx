@@ -1,17 +1,18 @@
+/* eslint-disable react/prop-types */
 export function FuelsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateFuel(params, () => event.target.reset());
+    window.location.href = "/fuel";
   };
   return (
-    <div>
+    <div id="fuel-new">
       <h1>Add New Fuel</h1>
+
       <form onSubmit={handleSubmit}>
         <div className="w-50">
-          <label htmlFor="InputFillDate" className="form-label">
-            Fill Date
-          </label>
+          <label htmlFor="InputFillDate">Fill Date</label>
           <input
             type="date"
             name="fill-date"
@@ -22,9 +23,7 @@ export function FuelsNew(props) {
         </div>
 
         <div className="w-50">
-          <label htmlFor="InputMileage" className="form-label">
-            Mileage
-          </label>
+          <label htmlFor="InputMileage">Mileage</label>
           <input
             type="number"
             name="mileage"
@@ -35,9 +34,7 @@ export function FuelsNew(props) {
         </div>
 
         <div className="w-50">
-          <label htmlFor="InputCostPerGallon" className="form-label">
-            Cost per gallon
-          </label>
+          <label htmlFor="InputCostPerGallon">Cost per gallon</label>
           <input
             type="decimal"
             name="cost-per-gallon"
@@ -48,9 +45,7 @@ export function FuelsNew(props) {
         </div>
 
         <div className="w-50">
-          <label htmlFor="InputGallonsMileage" className="form-label">
-            Gallons
-          </label>
+          <label htmlFor="InputGallonsMileage">Gallons</label>
           <input
             type="decimal"
             name="gallons"
@@ -61,9 +56,7 @@ export function FuelsNew(props) {
         </div>
 
         <div className="w-50">
-          <label htmlFor="InputLocation" className="form-label">
-            Location
-          </label>
+          <label htmlFor="InputLocation">Location</label>
           <input
             type="text"
             name="location"

@@ -82,9 +82,9 @@ export function Header() {
             Login
           </a>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <LogoutLink />
-        </li>
+        </li> */}
         <li className="nav-item">
           <a className="nav-link" href="/signup">
             Signup

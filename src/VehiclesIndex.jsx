@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 export function VehiclesIndex(props) {
-  const handleClick = () => {
-    props.onDestroyVehicle(props.vehicle);
-  };
+  // const handleClick = () => {
+  //   props.onDestroyVehicle(props.vehicle);
+  // };
 
   return (
     <div className="vehicles-index">
@@ -18,11 +19,14 @@ export function VehiclesIndex(props) {
               <br />
               <br />
               <a href="#" className="btn btn-outline-info" onClick={() => props.onShowVehicle(vehicle)}>
-                Vehicle Info
+                Edit Vehicle
               </a>{" "}
-              <button onClick={handleClick} className="btn btn-outline-danger">
+              {/* <button onClick={handleClick} className="btn btn-outline-danger">
                 Remove vehicle
-              </button>
+              </button> */}
+              <a href="/fuels" className="btn btn-outline-info" onClick={() => props.onNewFuel(fuel)}>
+                Add Fuel Record
+              </a>{" "}
             </div>
           </div>
           <br />

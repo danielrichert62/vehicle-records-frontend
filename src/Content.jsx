@@ -92,12 +92,12 @@ export function Content() {
     setCurrentFuel(fuel);
   };
 
-  const handleAddFuel = (params, successCallback) => {
-    console.log("handleAddFuel", params);
+  const handleCreateFuel = (params, successCallback) => {
+    console.log("handleCreateFuel", params);
     axios
-      .post("http://localhost:3000/fuels.json", params)
+      .post("http://localhost:3000/vehicles.json", params)
       .then((response) => {
-        setFuels([...Fuels, response.data]); // is this correct?  Fuels?
+        setFuels([...fuels, response.data]);
         successCallback();
       })
       .catch((error) => {
@@ -105,18 +105,31 @@ export function Content() {
       });
   };
 
-  const handleCreateFuel = (params, successCallback) => {
-    console.log("handleCreateFuel", params);
-    axios
-      .post("http://localhost:3000/fuels.json", params)
-      .then((response) => {
-        setFuels([...Fuels, response.data]);
-        successCallback();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleAddFuel = (params, successCallback) => {
+  //   console.log("handleAddFuel", params);
+  //   axios
+  //     .post("http://localhost:3000/fuels.json", params)
+  //     .then((response) => {
+  //       setFuels([...Fuels, response.data]); // is this correct?  Fuels?
+  //       successCallback();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const handleNewFuel = (params, successCallback) => {
+  //   console.log("handleNewFuel", params);
+  //   axios
+  //     .post("http://localhost:3000/fuels.json", params)
+  //     .then((response) => {
+  //       setFuels([...Fuels, response.data]);
+  //       successCallback();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   const handleUpdateFuel = (id, params) => {
     console.log("handleUpdateFuel", params);
@@ -147,29 +160,23 @@ export function Content() {
 
   return (
     <div className="container" id="content-component">
-      {/* <p> */}
       Current User: <Login /> <LogoutLink />
-      {/* </p> */}
       <Routes>
         {/* <Route path="/" element={<Homepage />} /> */}
         <Route path="/" element={<VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} />} />
-        <Route path="/vehicle/new" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
+        <Route path="/vehicle" element={<VehiclesNew onCreateVehicle={handleCreateVehicle} />} />
+        <Route path="/fuel" element={<FuelsNew onCreateFuel={handleCreateFuel} />} />
         <Route path="/vehicle" element={<VehiclesShow onCreateVehicle={handleShowVehicle} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      {/* <Signup /> */}
-      {/* <VehiclesNew onCreateVehicle={handleCreateVehicle} /> */}
-      {/* <hr /> */}
-      {/* <VehiclesIndex vehicles={vehicles} onShowVehicle={handleShowVehicle} /> */}
       {/* <FuelsIndex fuels={Fuels} onShowFuel={handleShowFuel} /> */}
       <Modal show={isVehiclesShowVisible} onClose={handleClose}>
-        {/* <VehiclesNew /> */}
         <VehiclesShow
           vehicle={currentVehicle}
           onUpdateVehicle={handleUpdateVehicle}
           onDestroyVehicle={handleDestroyVehicle}
-          onAddFuel={handleAddFuel}
+          onAddFuel={handleCreateFuel}
         />
         {/* <FuelsNew onShowFuel={handleCreateFuel} /> */}
       </Modal>
