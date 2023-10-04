@@ -95,7 +95,7 @@ export function Content() {
   const handleCreateFuel = (params, successCallback) => {
     console.log("handleCreateFuel", params);
     axios
-      .post("http://localhost:3000/vehicles.json", params)
+      .post("http://localhost:3000/fuels.json", params)
       .then((response) => {
         setFuels([...fuels, response.data]);
         successCallback();
@@ -104,32 +104,6 @@ export function Content() {
         console.log(error);
       });
   };
-
-  // const handleAddFuel = (params, successCallback) => {
-  //   console.log("handleAddFuel", params);
-  //   axios
-  //     .post("http://localhost:3000/fuels.json", params)
-  //     .then((response) => {
-  //       setFuels([...Fuels, response.data]); // is this correct?  Fuels?
-  //       successCallback();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const handleNewFuel = (params, successCallback) => {
-  //   console.log("handleNewFuel", params);
-  //   axios
-  //     .post("http://localhost:3000/fuels.json", params)
-  //     .then((response) => {
-  //       setFuels([...Fuels, response.data]);
-  //       successCallback();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   const handleUpdateFuel = (id, params) => {
     console.log("handleUpdateFuel", params);

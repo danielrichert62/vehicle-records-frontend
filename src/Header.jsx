@@ -35,7 +35,7 @@ export function Header() {
         </li>
         <li className="nav-item">
           {/* <a className="nav-link active" aria-current="page"> */}
-          <Link to="/vehicle/new">New Vehicle</Link>
+          <Link to="/vehicle">New Vehicle</Link>
           {/* </a> */}
         </li>
         <li>
@@ -91,7 +91,7 @@ export function Header() {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/vehicle/new">
+          <a className="nav-link" href="/vehicle">
             Add Vehicle
           </a>
         </li>

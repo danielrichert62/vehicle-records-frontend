@@ -60,32 +60,6 @@ export function Signup() {
                 <input type="password" name="password" className="form-control" id="InputPassword2" />
               </div>
 
-              {/* <div className="mb-3 form-check">
-          <input type="checkbox" className="form-check-input" id="Check1" />
-          <label className="form-check-label" htmlFor="Check1">
-            Check me out
-          </label>
-        </div> */}
-
-              {/* <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form> */}
-
-              {/* <div>
-          Name: <input name="name" type="text" />
-        </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div> */}
-
-              {/* <button type="submit">Signup</button> */}
               <br />
               <button type="submit" className="btn btn-outline-primary">
                 Signup

@@ -24,7 +24,7 @@ export function VehiclesIndex(props) {
               {/* <button onClick={handleClick} className="btn btn-outline-danger">
                 Remove vehicle
               </button> */}
-              <a href="/fuels" className="btn btn-outline-info" onClick={() => props.onNewFuel(fuel)}>
+              <a href="/fuel" className="btn btn-outline-info" onClick={() => props.onNewFuel(fuel)}>
                 Add Fuel Record
               </a>{" "}
             </div>

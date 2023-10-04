@@ -15,6 +15,7 @@ export function FuelsShow(props) {
   return (
     <div id="fuels-show">
       <h2>Edit fuel</h2>
+      {/* <form onSubmit={handleSubmit}> */}
       <form onSubmit={handleSubmit}>
         <div className="w-50">
           Fill Date
