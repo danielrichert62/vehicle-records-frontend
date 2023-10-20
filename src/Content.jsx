@@ -95,9 +95,9 @@ export function Content() {
   const handleCreateFuel = (params, successCallback) => {
     console.log("handleCreateFuel", params);
     axios
-      .post("http://localhost:3000/vehicles.json", params)
+      .post("http://localhost:3000/fuels.json", params)
       .then((response) => {
-        setFuels([...fuels, response.data]);
+        setFuels([response.data]);
         successCallback();
       })
       .catch((error) => {

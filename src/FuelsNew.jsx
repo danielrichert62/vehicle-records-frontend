@@ -4,7 +4,7 @@ export function FuelsNew(props) {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateFuel(params, () => event.target.reset());
-    window.location.href = "/fuel";
+    window.location.href = "/";
   };
   return (
     <div id="fuel-new">
@@ -36,7 +36,7 @@ export function FuelsNew(props) {
         <div className="w-50">
           <label htmlFor="InputCostPerGallon">Cost per gallon</label>
           <input
-            type="decimal"
+            type="number"
             name="cost-per-gallon"
             className="form-control"
             id="InputCostPerGallon"
@@ -47,7 +47,7 @@ export function FuelsNew(props) {
         <div className="w-50">
           <label htmlFor="InputGallonsMileage">Gallons</label>
           <input
-            type="decimal"
+            type="number"
             name="gallons"
             className="form-control"
             id="InputGallons"
@@ -64,6 +64,11 @@ export function FuelsNew(props) {
             id="InputLocation"
             aria-describedby="locationHelp"
           />
+        </div>
+
+        <div className="w-25">
+          <label htmlFor="VehicleId">Vehicle ID</label>
+          <input type="number" name="vehicle_id" className="form-control" id="InputVehicleId" aria-describedby="vehicleIdHelp" />
         </div>
 
         <br />
